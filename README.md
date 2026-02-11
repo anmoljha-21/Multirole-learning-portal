@@ -1,36 +1,121 @@
-# Multirole-Learning Portal – Backend (Spring Boot)
+Multirole Learning Portal — Backend (Spring Boot Microservices)
+Overview
 
-## Overview
-This project is a backend service for a Learning Portal application.  
-It provides REST APIs for user authentication, course management, quizzes, and results.
+Multirole Learning Portal is a microservices-based Learning Management System (LMS) backend built using Java + Spring Boot.
+It provides REST APIs for authentication, users, courses, quizzes, questions, and results, designed with a modular and scalable architecture.
 
-The project is built using Java and Spring Boot with a microservices-based architecture.
+The system supports role-based workflows for:
 
-## Tech Stack
-- Java
-- Spring Boot
-- Spring Security (JWT)
-- MySQL
-- Maven
-- REST APIs
+Admin
 
-## Modules / Services
-- Auth Service – User authentication and JWT handling
-- User Service – User profile management
-- Course Service – Course and content management
-- Quiz Service – Quiz creation and attempt handling
-- Question Service - Analyses and provides questions to the quiz
-- Result Service – Quiz result processing
+Instructor
 
-## Key Features
-- User registration and login using JWT authentication
-- Role-based access (Admin / User)
-- Course and quiz management APIs
-- Secure inter-service communication
-- RESTful API design
+Student
 
-## Notes
-- This project is currently under active development.
-- Services have been tested locally during development.
-- Detailed setup and run instructions will be added once the project is finalized and containerized.
+Architecture
 
+The backend consists of 6 domain microservices, plus infrastructure components:
+
+Domain Services
+
+Auth Service – User registration/login, JWT generation & validation
+
+User Service – User profile management
+
+Course Service – Course creation, listing, and enrollment
+
+Quiz Service – Quiz creation and attempt workflows
+
+Question Service – Question management and quiz question delivery
+
+Result Service – Quiz evaluation and result persistence
+
+Infrastructure
+
+API Gateway – Centralized routing through a single entry point
+
+Service Registry (Eureka) – Service discovery for microservices
+
+Key Features
+
+JWT-based authentication and secure login/register flow
+
+Role-based access control (Admin / Instructor / Student)
+
+RESTful APIs across services (38 endpoints)
+
+Inter-service communication using Eureka + OpenFeign
+
+API Gateway routing for all requests
+
+MySQL persistence using JPA/Hibernate (6 entities)
+
+Tech Stack
+
+Java
+
+Spring Boot
+
+Spring Security (JWT)
+
+Spring Cloud (Eureka, OpenFeign, API Gateway)
+
+MySQL
+
+Maven
+
+Git & GitHub
+
+Postman (API testing)
+
+Project Scale (From Codebase)
+
+6 Controllers
+
+38 REST Endpoints
+
+6 JPA Entities
+
+6 Domain Microservices + API Gateway + Eureka (8 components total)
+
+How to Run Locally (Basic)
+Prerequisites
+
+Java 17+ (or your configured version)
+
+Maven
+
+MySQL
+
+Start Services (Recommended Order)
+1) Service Registry
+cd service-registry
+mvn spring-boot:run
+
+2) API Gateway
+cd api-gateway
+mvn spring-boot:run
+
+3) Domain Microservices
+
+Run each service in a separate terminal:
+
+cd auth-service && mvn spring-boot:run
+cd user-service && mvn spring-boot:run
+cd course-service && mvn spring-boot:run
+cd quiz-service && mvn spring-boot:run
+cd question-service && mvn spring-boot:run
+cd result-service && mvn spring-boot:run
+
+Notes
+
+Services have been tested locally during development.
+
+Frontend integration is planned using React + Tailwind CSS.
+
+This project is currently under active development.
+
+Author
+
+Anmol Jha
+GitHub: https://github.com/anmoljha-21
