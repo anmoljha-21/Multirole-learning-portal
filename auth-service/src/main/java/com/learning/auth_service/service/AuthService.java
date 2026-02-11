@@ -48,7 +48,7 @@ public class AuthService {
         // Save user in auth-service DB
         User user = new User();
         user.setUsername(request.getUsername());
-        user.setEmail(request.getEmail());
+       // user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setRoles(request.getRoles());
 
@@ -57,7 +57,7 @@ public class AuthService {
         // Forward user to user-service via Feign
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername(user.getUsername());
-        userDTO.setEmail(user.getEmail());
+       // userDTO.setEmail(user.getEmail());
         userDTO.setRoles(user.getRoles()); // assuming UserDTO has a roles field
 
         userClient.createUser(userDTO);

@@ -1,0 +1,19 @@
+# OS files
+.DS_Store
+
+# IDE / Workspace
+.metadata/
+.idea/
+.vscode/
+*.iml
+
+# Java build
+**/target/
+**/bin/
+
+# Maven wrapper (keep it, don't ignore)
+# .mvn/
+
+# Logs
+*.log
+

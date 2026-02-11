@@ -23,7 +23,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest request) {
-        return authService.login(request);
+    	System.out.println("Login hit");
+    	return authService.login(request);
     }
 
     @GetMapping("/validate")

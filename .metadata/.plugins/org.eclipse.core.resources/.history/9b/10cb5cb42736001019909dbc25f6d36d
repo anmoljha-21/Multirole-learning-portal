@@ -1,5 +1,0 @@
-package com.learning.auth_service.service;
-
-public class JWTService {
-
-}

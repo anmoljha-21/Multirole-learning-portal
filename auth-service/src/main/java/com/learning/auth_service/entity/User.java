@@ -22,8 +22,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String username;
-	@Column(unique = true, nullable = false)
-	private String email;
+	//@Column(unique = true, nullable = false)
+	//private String email;
 	@Column(nullable = false)
 	private String password;
 	@ElementCollection(fetch = FetchType.EAGER)
